@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="uk" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сучасна Їдальня МППК | Mukachevo Professional Polytechnic College</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#0d1b2a',
+                            900: '#0a192f',
+                            950: '#020c1b',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f;
+            color: #e2e8f0;
+        }
+        .glass-card {
+            background: rgba(16, 30, 54, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+        }
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a192f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-500 selection:text-navy-950">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 flex items-center justify-center shadow-lg text-navy-950 font-black text-xl tracking-tighter">
+                    МППК
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight text-white tracking-wide">ЇДАЛЬНЯ МППК</h1>
+                    <p class="text-xs text-amber-400/90 font-medium">Мукачівський Фаховий Політехнічний Коледж</p>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#about" class="text-gray-300 hover:text-amber-400 transition-colors">Про їдальню</a>
+                <a href="#gallery" class="text-gray-300 hover:text-amber-400 transition-colors">Галерея & Фото</a>
+                <a href="#calculator" class="text-gray-300 hover:text-amber-400 transition-colors">Меню & Калькулятор</a>
+                <a href="#reviews" class="text-gray-300 hover:text-amber-400 transition-colors">Відгуки студентів</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#calculator" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-navy-950 font-bold hover:brightness-110 transition-all shadow-md">
+                    <i class="fa-solid fa-utensils text-xs"></i>
+                    <span>Замовити перекус</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="about" class="relative py-12 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Свіжа випічка та гаряча кава щодня
+                </div>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+                    Затишний простір смаку <span class="text-gradient">у коледжі МППК</span>
+                </h2>
+                <p class="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+                    Ласкаво просимо до нашої оновленої їдальні! Свіжа випічка, популярні снеки, соки, запашна кава з автомата «Кавільок» та сучасні POS-термінали для швидкої оплати без черг.
+                </p>
+
+                <!-- Live Queue & Working Hours Widget -->
+                <div class="grid sm:grid-cols-2 gap-4 pt-4">
+                    <div class="glass-card p-4 rounded-2xl flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-xl">
+                            <i class="fa-solid fa-users-line"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400 font-medium">Завантаженість зараз</div>
+                            <div class="text-lg font-bold text-white flex items-center gap-2" id="liveQueueText">
+                                <!-- Dynamic queue text -->
+                            </div>
+                            <div class="w-28 bg-slate-800 rounded-full h-2 mt-1 overflow-hidden">
+                                <div id="queueBar" class="bg-amber-400 h-full transition-all duration-500" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-4 rounded-2xl flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400 font-medium">Графік роботи</div>
+                            <div class="text-base font-bold text-white">08:00 – 16:00</div>
+                            <div class="text-xs text-emerald-400 font-medium mt-0.5">Пн - Пт (Під час великих перерв)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Visual Preview Card -->
+            <div class="lg:col-span-5">
+                <div class="glass-card p-3 rounded-3xl relative overflow-hidden gold-glow border-amber-500/30">
+                    <div class="relative h-80 rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center" id="heroVisualContainer">
+                        <!-- Render Canvas Illustration dynamically -->
+                        <canvas id="heroCanvas" class="w-full h-full object-cover"></canvas>
+                        <div class="absolute bottom-3 left-3 right-3 glass-card p-3 rounded-xl backdrop-blur-md bg-navy-950/80">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="font-bold text-amber-400" id="heroVisualTitle">Торгові стелажі та снеки</span>
+                                <span class="text-gray-400"><i class="fa-solid fa-camera mr-1"></i>МППК Візуалізація</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2 mt-3">
+                        <button onclick="switchHeroCanvas(0)" class="p-2 text-xs font-medium rounded-lg glass-card hover:border-amber-400/50 text-center transition-all">Стелажі</button>
+                        <button onclick="switchHeroCanvas(1)" class="p-2 text-xs font-medium rounded-lg glass-card hover:border-amber-400/50 text-center transition-all">Каса & POS</button>
+                        <button onclick="switchHeroCanvas(2)" class="p-2 text-xs font-medium rounded-lg glass-card hover:border-amber-400/50 text-center transition-all">Кавільок</button>
+                        <button onclick="switchHeroCanvas(3)" class="p-2 text-xs font-medium rounded-lg glass-card hover:border-amber-400/50 text-center transition-all">Зал</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Realistic Graphic Gallery Section -->
+    <section id="gallery" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">Інтерактивна візуалізація</h3>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Реалістичний огляд локацій їдальні</h2>
+            </div>
+
+            <!-- Upload Custom Photos Feature -->
+            <div class="flex items-center gap-3">
+                <label for="customPhotoUpload" class="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 hover:border-amber-400 text-white font-medium text-sm transition-all shadow-md">
+                    <i class="fa-solid fa-cloud-arrow-up text-amber-400"></i>
+                    <span>Завантажити власні фото</span>
+                </label>
+                <input type="file" id="customPhotoUpload" accept="image/*" multiple class="hidden" onchange="handleFileUpload(event)">
+            </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="galleryGrid">
+            <!-- Rendered by JS using Canvas Renderers -->
+        </div>
+    </section>
+
+    <!-- Menu & Calculator Section -->
+    <section id="calculator" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div class="glass-card rounded-3xl p-6 sm:p-10 border-amber-500/20">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Калькулятор перекусу</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Розрахуйте ваше замовлення</h2>
+                <p class="text-gray-300 text-sm mt-2">Обирайте найпопулярніші страви, випічку та напої МППК для швидкого підрахунку коштів.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+                <!-- Food Item Selectors -->
+                <div class="lg:col-span-8 grid sm:grid-cols-2 gap-4" id="calculatorItems">
+                    <!-- Dynamic Menu Items JS -->
+                </div>
+
+                <!-- Order Summary Side Card -->
+                <div class="lg:col-span-4 glass-card p-6 rounded-2xl border-slate-700/60 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-slate-700/60 pb-4 mb-4">
+                            <h3 class="font-bold text-lg text-white">Ваше замовлення</h3>
+                            <span class="text-xs text-amber-400 font-semibold bg-amber-500/10 px-2.5 py-1 rounded-md">МППК Меню</span>
+                        </div>
+                        <div id="orderSummaryList" class="space-y-3 min-h-[140px]">
+                            <p class="text-xs text-gray-500 italic text-center py-6">Ваша корзина порожня. Оберіть позиції з меню ліворуч.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-700/60 mt-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-gray-400 text-sm">Всього позицій:</span>
+                            <span class="font-bold text-white text-sm" id="totalItemsCount">0 шт</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-gray-200 font-bold text-lg">Загальна сума:</span>
+                            <span class="text-3xl font-extrabold text-amber-400" id="totalPriceSum">0 грн</span>
+                        </div>
+                        <button onclick="submitOrderMock()" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-navy-950 font-bold text-center hover:brightness-110 transition-all shadow-lg flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-receipt"></i>
+                            <span>Сформувати чек</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews and Student Group Rating System -->
+    <section id="reviews" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div class="grid lg:grid-cols-12 gap-8">
+            <!-- Review Submission Form -->
+            <div class="lg:col-span-5 glass-card p-6 sm:p-8 rounded-3xl border-slate-700/60">
+                <h3 class="text-2xl font-bold text-white mb-2">Залишити відгук</h3>
+                <p class="text-gray-300 text-xs mb-6">Поділіться враженнями про їдальню або запропонуйте нову страву!</p>
+
+                <form id="reviewForm" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1">Ваше ім'я / Прізвище</label>
+                        <input type="text" id="reviewerName" required placeholder="напр. Василь Пекар" class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1">Група МППК</label>
+                            <select id="reviewerGroup" required class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors">
+                                <option value="КР-17">КР-17 (Комп'ютерники)</option>
+                                <option value="Т-11">Т-11 (Технологи)</option>
+                                <option value="Ф-21">Ф-21 (Фінанси)</option>
+                                <option value="М-32">М-32 (Менеджмент)</option>
+                                <option value="ЕЛ-12">ЕЛ-12 (Електрики)</option>
+                                <option value="А-22">А-22 (Автомеханіки)</option>
+                                <option value="Викладач">Викладач / Співробітник</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1">Оцінка</label>
+                            <select id="reviewRating" class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors">
+                                <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                                <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                                <option value="3">⭐⭐⭐ (3/5)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1">Текст відгуку</label>
+                        <textarea id="reviewText" required rows="3" placeholder="Найкраща сосиска в тісті! Рекомендую каву Капучино..." class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-amber-400 transition-colors resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-navy-950 font-bold transition-all shadow-md">
+                        Надіслати відгук
+                    </button>
+                </form>
+            </div>
+
+            <!-- Review Feed -->
+            <div class="lg:col-span-7 space-y-4" id="reviewsContainer">
+                <!-- Reviews injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Modal Viewer -->
+    <div id="photoModal" class="fixed inset-0 z-50 hidden bg-navy-950/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full glass-card rounded-2xl overflow-hidden p-2">
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-navy-950/80 text-white hover:text-amber-400 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="max-h-[80vh] flex items-center justify-center bg-slate-900 rounded-xl overflow-hidden" id="modalCanvasContainer">
+                <!-- Selected Canvas or Image rendered here -->
+            </div>
+            <div class="p-4">
+                <h4 id="modalTitle" class="text-lg font-bold text-white"></h4>
+                <p id="modalDesc" class="text-xs text-gray-400 mt-1"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="mt-auto border-t border-slate-800 bg-navy-950 py-10 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <div class="flex items-center justify-center md:justify-start gap-2 text-white font-bold text-base mb-1">
+                    <i class="fa-solid fa-graduation-cap text-amber-400"></i>
+                    <span>Мукачівський Фаховий Політехнічний Коледж</span>
+                </div>
+                <p class="text-xs text-gray-500">© 2026 Їдальня МППК. Всі права захищено.</p>
+            </div>
+
+            <!-- Required phrase in footer -->
+            <div class="glass-card px-6 py-3 rounded-2xl border-amber-500/30 text-amber-400 font-extrabold text-sm sm:text-base tracking-wide shadow-inner">
+                «Русин, псято і гамос!»
+            </div>
+
+            <div class="flex items-center gap-4 text-gray-400 text-sm">
+                <span class="hover:text-amber-400 cursor-pointer transition-colors"><i class="fa-solid fa-location-dot mr-1"></i> м. Мукачево</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. Realistic Canvas Scene Renderers ---
+        function renderShelvesCanvas(canvas) {
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width = 800;
+            const h = canvas.height = 600;
+
+            // Background wall & ambient lighting
+            ctx.fillStyle = '#0f172a';
+            ctx.fillRect(0, 0, w, h);
+
+            // Back lit background glow
+            const glow = ctx.createRadialGradient(w/2, h/2, 50, w/2, h/2, 400);
+            glow.addColorStop(0, '#1e293b');
+            glow.addColorStop(1, '#020617');
+            ctx.fillStyle = glow;
+            ctx.fillRect(0, 0, w, h);
+
+            // Metallic Display Shelves
+            const shelfY = [160, 310, 460];
+            shelfY.forEach(y => {
+                // Shelf bar
+                ctx.fillStyle = '#334155';
+                ctx.fillRect(50, y, 700, 16);
+                ctx.fillStyle = '#f59e0b';
+                ctx.fillRect(50, y + 16, 700, 4); // LED strip glow
+
+                // Soft shadow under shelf
+                ctx.fillStyle = 'rgba(0,0,0,0.4)';
+                ctx.fillRect(50, y + 20, 700, 15);
+            });
+
+            // SHELF 1: Drinks & Beverages (Soda, Juices)
+            const drinks = ['#ef4444', '#10b981', '#3b82f6', '#f59e0b', '#8b5cf6', '#ec4899'];
+            for(let i = 0; i < 12; i++) {
+                const x = 80 + i * 56;
+                const y = 90;
+                // Can body
+                ctx.fillStyle = drinks[i % drinks.length];
+                ctx.beginPath();
+                ctx.roundRect(x, y, 32, 65, [6, 6, 4, 4]);
+                ctx.fill();
+                // Silver cap
+                ctx.fillStyle = '#cbd5e1';
+                ctx.fillRect(x + 4, y - 4, 24, 4);
+                // Highlight shine
+                ctx.fillStyle = 'rgba(255,255,255,0.25)';
+                ctx.fillRect(x + 4, y + 4, 6, 55);
+            }
+
+            // SHELF 2: Chips (Lay's style packages)
+            const chips = ['#eab308', '#dc2626', '#16a34a', '#2563eb'];
+            for(let i = 0; i < 8; i++) {
+                const x = 85 + i * 85;
+                const y = 200;
+                // Snack bag shape
+                ctx.fillStyle = chips[i % chips.length];
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + 60, y - 10);
+                ctx.lineTo(x + 65, y + 100);
+                ctx.lineTo(x - 5, y + 100);
+                ctx.closePath();
+                ctx.fill();
+                // Label circle
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.arc(x + 30, y + 45, 16, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.fillStyle = '#dc2626';
+                ctx.font = 'bold 10px Inter';
+                ctx.fillText('LAY\'S', x + 16, y + 48);
+            }
+
+            // SHELF 3: Snacks & Chocolate Bars
+            for(let i = 0; i < 10; i++) {
+                const x = 80 + i * 68;
+                const y = 390;
+                ctx.fillStyle = (i % 2 === 0) ? '#78350f' : '#b45309';
+                ctx.fillRect(x, y, 52, 65);
+                ctx.fillStyle = '#fbbf24';
+                ctx.fillRect(x + 5, y + 15, 42, 35);
+            }
+
+            // Foreground glass refraction line
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(w, h);
+            ctx.stroke();
+        }
+
+        function renderPosCounterCanvas(canvas) {
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width = 800;
+            const h = canvas.height = 600;
+
+            // Warm bakery ambient lighting
+            ctx.fillStyle = '#1e1b18';
+            ctx.fillRect(0, 0, w, h);
+
+            // Wooden Countertop
+            ctx.fillStyle = '#78350f';
+            ctx.fillRect(0, 360, w, 240);
+            ctx.fillStyle = '#92400e';
+            ctx.fillRect(0, 360, w, 12); // Counter lip highlight
+
+            // Glass Display Case with Fresh Pastries
+            ctx.fillStyle = 'rgba(255,255,255,0.05)';
+            ctx.fillRect(60, 120, 420, 230);
+            ctx.strokeStyle = '#475569';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(60, 120, 420, 230);
+
+            // Pastry Tray 1: Sausage in dough (Сосиски в тісті)
+            for(let i = 0; i < 4; i++) {
+                const x = 90 + i * 85;
+                const y = 280;
+                // Golden baked pastry
+                ctx.fillStyle = '#d97706';
+                ctx.beginPath();
+                ctx.ellipse(x + 30, y + 20, 35, 18, Math.PI / 12, 0, Math.PI * 2);
+                ctx.fill();
+                // Crust lines
+                ctx.strokeStyle = '#92400e';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+
+            // Pastry Tray 2: Croissants & Pizza Slices
+            for(let i = 0; i < 3; i++) {
+                const x = 110 + i * 110;
+                const y = 180;
+                // Croissant shape
+                ctx.fillStyle = '#f59e0b';
+                ctx.beginPath();
+                ctx.arc(x + 20, y + 20, 25, 0.2, Math.PI - 0.2);
+                ctx.fill();
+            }
+
+            // Modern POS Payment Terminal (White & Black)
+            const posX = 550;
+            const posY = 180;
+            
+            // Terminal Stand
+            ctx.fillStyle = '#1e293b';
+            ctx.fillRect(posX + 70, posY + 150, 40, 60);
+
+            // Main Display Screen (White Body)
+            ctx.fillStyle = '#f8fafc';
+            ctx.beginPath();
+            ctx.roundRect(posX, posY, 180, 150, 12);
+            ctx.fill();
+
+            // Inner Black Screen Frame
+            ctx.fillStyle = '#0f172a';
+            ctx.beginPath();
+            ctx.roundRect(posX + 10, posY + 10, 160, 130, 8);
+            ctx.fill();
+
+            // Screen UI glowing graphics
+            ctx.fillStyle = '#38bdf8';
+            ctx.font = 'bold 16px Inter';
+            ctx.fillText('МППК POS', posX + 25, posY + 40);
+            ctx.fillStyle = '#4ade80';
+            ctx.font = 'bold 22px Inter';
+            ctx.fillText('45.00 UAH', posX + 25, posY + 80);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '11px Inter';
+            ctx.fillText('Прислоніть картку...', posX + 25, posY + 110);
+
+            // Contactless Reader Icon
+            ctx.strokeStyle = '#38bdf8';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(posX + 145, posY + 40, 10, -0.5, 0.5);
+            ctx.stroke();
+        }
+
+        function renderCoffeeAreaCanvas(canvas) {
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width = 800;
+            const h = canvas.height = 600;
+
+            // Dark Modern Cafe Vibe
+            ctx.fillStyle = '#0b0f17';
+            ctx.fillRect(0, 0, w, h);
+
+            // "КАВІЛЬОК" Neon Wall Sign
+            ctx.fillStyle = '#f59e0b';
+            ctx.font = 'bold 36px Inter';
+            ctx.shadowColor = '#f59e0b';
+            ctx.shadowBlur = 15;
+            ctx.fillText('КАВІЛЬОК', 280, 90);
+            ctx.shadowBlur = 0; // reset
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '14px Inter';
+            ctx.fillText('візьми з собою • свіже обсмаження', 285, 115);
+
+            // Sleek Black Saeco Coffee Machine Body
+            const mX = 220;
+            const mY = 160;
+            ctx.fillStyle = '#1e293b';
+            ctx.beginPath();
+            ctx.roundRect(mX, mY, 360, 380, 16);
+            ctx.fill();
+            ctx.strokeStyle = '#334155';
+            ctx.lineWidth = 4;
+            ctx.stroke();
+
+            // Glowing Blue Digital Menu Screen
+            ctx.fillStyle = '#0284c7';
+            ctx.shadowColor = '#0284c7';
+            ctx.shadowBlur = 10;
+            ctx.fillRect(mX + 40, mY + 30, 280, 140);
+            ctx.shadowBlur = 0;
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 16px Inter';
+            ctx.fillText('ОБЕРІТЬ НАПІЙ SAECO', mX + 60, mY + 65);
+            ctx.font = '12px Inter';
+            ctx.fillText('1. Еспресо      2. Капучино', mX + 60, mY + 95);
+            ctx.fillText('3. Лате          4. Чай з лимоном', mX + 60, mY + 120);
+
+            // Coffee Dispenser Spout & Cup
+            ctx.fillStyle = '#64748b';
+            ctx.fillRect(mX + 150, mY + 220, 60, 30);
+
+            // Coffee Stream
+            ctx.fillStyle = '#78350f';
+            ctx.fillRect(mX + 177, mY + 250, 6, 50);
+
+            // Disposable Paper Coffee Cup with Lid
+            ctx.fillStyle = '#f59e0b'; // Gold MPPK Cup
+            ctx.beginPath();
+            ctx.moveTo(mX + 155, mY + 300);
+            ctx.lineTo(mX + 205, mY + 300);
+            ctx.lineTo(mX + 198, mY + 360);
+            ctx.lineTo(mX + 162, mY + 360);
+            ctx.closePath();
+            ctx.fill();
+
+            // Black Lid
+            ctx.fillStyle = '#0f172a';
+            ctx.fillRect(mX + 152, mY + 292, 56, 10);
+        }
+
+        function renderDiningHallCanvas(canvas) {
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width = 800;
+            const h = canvas.height = 600;
+
+            // Bright Spacious Room Background
+            ctx.fillStyle = '#1e293b';
+            ctx.fillRect(0, 0, w, h);
+
+            // Light Stone Floor Perspective
+            ctx.fillStyle = '#334155';
+            ctx.beginPath();
+            ctx.moveTo(0, 280);
+            ctx.lineTo(w, 280);
+            ctx.lineTo(w, h);
+            ctx.lineTo(0, h);
+            ctx.fill();
+
+            // Large Sunlit Windows on Back Wall
+            ctx.fillStyle = '#38bdf8';
+            ctx.globalAlpha = 0.3;
+            ctx.fillRect(100, 60, 180, 180);
+            ctx.fillRect(520, 60, 180, 180);
+            ctx.globalAlpha = 1.0;
+
+            // Wooden Columns
+            ctx.fillStyle = '#b45309';
+            ctx.fillRect(50, 0, 45, 600);
+            ctx.fillRect(705, 0, 45, 600);
+
+            // Dining Tables & Chairs in Perspective
+            for(let i = 0; i < 3; i++) {
+                const y = 340 + i * 80;
+                const scale = 0.7 + i * 0.2;
+                
+                // Table
+                ctx.fillStyle = '#d97706';
+                ctx.fillRect(200 - i * 30, y, 400 + i * 60, 25 * scale);
+                // Legs
+                ctx.fillStyle = '#0f172a';
+                ctx.fillRect(220 - i * 30, y + 25, 12, 50 * scale);
+                ctx.fillRect(560 + i * 30, y + 25, 12, 50 * scale);
+            }
+        }
+
+        // --- 2. Dynamic Hero Canvas Switcher ---
+        const heroCanvasRenderers = [renderShelvesCanvas, renderPosCounterCanvas, renderCoffeeAreaCanvas, renderDiningHallCanvas];
+        const heroTitles = [
+            "Торгові стелажі з напоями та снеками",
+            "Касова зона з POS-терміналом та свіжою випічкою",
+            "Кавовий куток «КАВІЛЬОК» з машиною Saeco",
+            "Просторний світлий обідній зал МППК"
+        ];
+
+        function switchHeroCanvas(index) {
+            const canvas = document.getElementById('heroCanvas');
+            heroCanvasRenderers[index](canvas);
+            document.getElementById('heroVisualTitle').innerText = heroTitles[index];
+        }
+
+        // --- 3. Gallery Initialization ---
+        const defaultGalleryData = [
+            { title: "Витрина снеків та соків", desc: "Стелажі з чіпсами Lay's, вода, соки та солодощі.", renderer: renderShelvesCanvas },
+            { title: "Каса та POS-термінал", desc: "Безконтактна оплата карткою або телефоном.", renderer: renderPosCounterCanvas },
+            { title: "Кава «КАВІЛЬОК»", desc: "Автомат Saeco з гарячим капучино та лате.", renderer: renderCoffeeAreaCanvas },
+            { title: "Обідня зала МППК", desc: "Затишні дерев'яні столи, світле приміщення.", renderer: renderDiningHallCanvas }
+        ];
+
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = '';
+
+            defaultGalleryData.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'glass-card rounded-2xl overflow-hidden hover:border-amber-400/50 transition-all duration-300 group cursor-pointer';
+                card.onclick = () => openModalWithCanvas(item.renderer, item.title, item.desc);
+
+                const canvasContainer = document.createElement('div');
+                canvasContainer.className = 'h-48 bg-slate-900 relative overflow-hidden';
+                
+                const canvas = document.createElement('canvas');
+                canvas.className = 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-500';
+                
+                canvasContainer.appendChild(canvas);
+
+                card.innerHTML = `
+                    ${canvasContainer.outerHTML}
+                    <div class="p-4">
+                        <h4 class="font-bold text-white text-base group-hover:text-amber-400 transition-colors">${item.title}</h4>
+                        <p class="text-xs text-gray-400 mt-1">${item.desc}</p>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+                // Render Canvas inside created element
+                const renderedCanvas = grid.lastElementChild.querySelector('canvas');
+                item.renderer(renderedCanvas);
+            });
+        }
+
+        // --- 4. User Custom Photo Upload Feature ---
+        function handleFileUpload(event) {
+            const files = event.target.files;
+            if (!files || files.length === 0) return;
+
+            const grid = document.getElementById('galleryGrid');
+
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageUrl = e.target.result;
+
+                    const card = document.createElement('div');
+                    card.className = 'glass-card rounded-2xl overflow-hidden border-amber-500/40 hover:border-amber-400 transition-all duration-300 group cursor-pointer';
+                    card.onclick = () => openModalWithImage(imageUrl, file.name, "Завантажене фото користувача МППК");
+
+                    card.innerHTML = `
+                        <div class="h-48 bg-slate-900 relative overflow-hidden">
+                            <img src="${imageUrl}" alt="User Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-2 right-2 bg-amber-500 text-navy-950 font-bold text-[10px] px-2 py-0.5 rounded-full">Ваше фото</span>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-bold text-white text-base group-hover:text-amber-400 transition-colors">${file.name}</h4>
+                            <p class="text-xs text-gray-400 mt-1">Додано вами щойно</p>
+                        </div>
+                    `;
+
+                    grid.prepend(card);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // --- 5. Interactive Lunch & Coffee Order Calculator ---
+        const menuItems = [
+            { id: 'sodu', name: 'Сосиска в тісті', category: 'Випічка', price: 35, icon: 'fa-hotdog' },
+            { id: 'pizza', name: 'Слайс піци', category: 'Випічка', price: 40, icon: 'fa-pizza-slice' },
+            { id: 'croissant', name: 'Круасан з шоколадом', category: 'Солодощі', price: 30, icon: 'fa-bread-slice' },
+            { id: 'cap', name: 'Капучино Saeco', category: 'Кавільок', price: 28, icon: 'fa-mug-hot' },
+            { id: 'tea', name: 'Чай з лимоном', category: 'Напої', price: 15, icon: 'fa-glass-water' },
+            { id: 'kavil', name: 'Кава Кавільок (Еспресо)', category: 'Кавільок', price: 20, icon: 'fa-coffee' },
+        ];
+
+        let cart = {};
+
+        function renderCalculatorItems() {
+            const container = document.getElementById('calculatorItems');
+            container.innerHTML = '';
+
+            menuItems.forEach(item => {
+                const qty = cart[item.id] || 0;
+                const card = document.createElement('div');
+                card.className = 'glass-card p-4 rounded-2xl flex items-center justify-between border-slate-700/60 hover:border-amber-500/40 transition-all';
+                card.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                            <i class="fa-solid ${item.icon}"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">${item.name}</h4>
+                            <span class="text-xs text-amber-400 font-semibold">${item.price} грн</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="updateCart('${item.id}', -1)" class="w-8 h-8 rounded-lg bg-slate-800 text-gray-300 hover:bg-amber-500 hover:text-navy-950 font-bold transition-colors flex items-center justify-center">-</button>
+                        <span class="w-6 text-center font-bold text-white text-sm">${qty}</span>
+                        <button onclick="updateCart('${item.id}', 1)" class="w-8 h-8 rounded-lg bg-slate-800 text-gray-300 hover:bg-amber-500 hover:text-navy-950 font-bold transition-colors flex items-center justify-center">+</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            updateOrderSummary();
+        }
+
+        function updateCart(id, change) {
+            cart[id] = (cart[id] || 0) + change;
+            if (cart[id] <= 0) delete cart[id];
+            renderCalculatorItems();
+        }
+
+        function updateOrderSummary() {
+            const summaryList = document.getElementById('orderSummaryList');
+            let totalSum = 0;
+            let totalCount = 0;
+
+            const activeIds = Object.keys(cart);
+            if (activeIds.length === 0) {
+                summaryList.innerHTML = `<p class="text-xs text-gray-500 italic text-center py-6">Ваша корзина порожня. Оберіть позиції з меню ліворуч.</p>`;
+            } else {
+                summaryList.innerHTML = '';
+                activeIds.forEach(id => {
+                    const item = menuItems.find(m => m.id === id);
+                    const qty = cart[id];
+                    const itemTotal = item.price * qty;
+                    totalSum += itemTotal;
+                    totalCount += qty;
+
+                    const row = document.createElement('div');
+                    row.className = 'flex items-center justify-between text-xs py-1.5 border-b border-slate-800/50';
+                    row.innerHTML = `
+                        <span class="text-gray-300 font-medium">${item.name} × ${qty}</span>
+                        <span class="text-amber-400 font-bold">${itemTotal} грн</span>
+                    `;
+                    summaryList.appendChild(row);
+                });
+            }
+
+            document.getElementById('totalItemsCount').innerText = `${totalCount} шт`;
+            document.getElementById('totalPriceSum').innerText = `${totalSum} грн`;
+        }
+
+        function submitOrderMock() {
+            const totalSum = document.getElementById('totalPriceSum').innerText;
+            if (totalSum === '0 грн') {
+                alert('Будь ласка, оберіть хоча б одну позицію для замовлення!');
+                return;
+            }
+            alert(`Ваше замовлення прийнято! Сума до сплати на касі POS: ${totalSum}.\nСмачного в їдальні МППК!`);
+            cart = {};
+            renderCalculatorItems();
+        }
+
+        // --- 6. Reviews & Rating System ---
+        const sampleReviews = [
+            { name: "Іван Бойко", group: "КР-17", rating: 5, text: "Найкращі сосиски в тісті в усьому Мукачеві! Кава з «Кавілька» рятує перед першою парою." },
+            { name: "Олена Мельник", group: "Ф-21", rating: 5, text: "Дуже зручно, що поставили POS-термінал. Оплата карток розвантажила чергу на великій перерві!" },
+            { name: "Максим Ковач", group: "Т-11", rating: 4, text: "Все супер, випічка завжди свіжа. Зал світлий і чистий." }
+        ];
+
+        function renderReviews() {
+            const container = document.getElementById('reviewsContainer');
+            container.innerHTML = '';
+
+            sampleReviews.forEach(rev => {
+                const stars = '⭐'.repeat(rev.rating);
+                const card = document.createElement('div');
+                card.className = 'glass-card p-5 rounded-2xl border-slate-700/60';
+                card.innerHTML = `
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center font-bold text-xs">
+                                ${rev.name.charAt(0)}
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm leading-none">${rev.name}</h4>
+                                <span class="text-[10px] text-amber-400 font-semibold">Група: ${rev.group}</span>
+                            </div>
+                        </div>
+                        <span class="text-xs">${stars}</span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">${rev.text}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('reviewerName').value;
+            const group = document.getElementById('reviewerGroup').value;
+            const rating = parseInt(document.getElementById('reviewRating').value);
+            const text = document.getElementById('reviewText').value;
+
+            sampleReviews.unshift({ name, group, rating, text });
+            renderReviews();
+
+            document.getElementById('reviewForm').reset();
+            alert('Дякуємо! Ваш відгук успішно додано.');
+        }
+
+        // --- 7. Live Queue Meter Simulation ---
+        function updateLiveQueue() {
+            const queueText = document.getElementById('liveQueueText');
+            const queueBar = document.getElementById('queueBar');
+            const now = new Date();
+            const hours = now.getHours();
+
+            // Simulate peak rush during college breaks (e.g., 10:00 - 10:20, 12:00 - 12:30)
+            let queueLevel = 'Низька (без черг)';
+            let percentage = 25;
+            let color = '#4ade80';
+
+            if (hours >= 10 && hours <= 13) {
+                queueLevel = 'Середня (3-5 хв)';
+                percentage = 60;
+                color = '#f59e0b';
+            }
+
+            queueText.innerHTML = `<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: ${color}"></span> ${queueLevel}`;
+            queueBar.style.width = `${percentage}%`;
+            queueBar.style.backgroundColor = color;
+        }
+
+        // --- 8. Modal Viewer Control ---
+        function openModalWithCanvas(renderer, title, desc) {
+            const modal = document.getElementById('photoModal');
+            const container = document.getElementById('modalCanvasContainer');
+            container.innerHTML = '<canvas class="max-w-full max-h-[70vh] rounded-lg"></canvas>';
+            
+            const canvas = container.querySelector('canvas');
+            renderer(canvas);
+
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            modal.classList.remove('hidden');
+        }
+
+        function openModalWithImage(src, title, desc) {
+            const modal = document.getElementById('photoModal');
+            const container = document.getElementById('modalCanvasContainer');
+            container.innerHTML = `<img src="${src}" class="max-w-full max-h-[70vh] object-contain rounded-lg">`;
+
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('photoModal').classList.add('hidden');
+        }
+
+        // --- 9. Initial Load Setup ---
+        window.onload = function() {
+            // Render Hero Visual
+            switchHeroCanvas(0);
+
+            // Render Gallery Canvas Cards
+            renderGallery();
+
+            // Render Menu Calculator
+            renderCalculatorItems();
+
+            // Render Student Reviews
+            renderReviews();
+
+            // Live Queue Meter Init
+            updateLiveQueue();
+        };
+    </script>
+</body>
+</html>
